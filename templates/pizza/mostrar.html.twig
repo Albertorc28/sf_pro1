@@ -1,0 +1,17 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	
+<h1>Estoy en mostrar</h1>
+
+<h1>Ingredientes</h1>
+	<ul>
+	    {% for ingrediente in ingredientes %}
+	        <li>{{ ingrediente|lower  }}</li>
+	    {% endfor %}
+	</ul>
+
+{% endblock %}

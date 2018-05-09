@@ -18,13 +18,9 @@
 	        <li>{{ pizza|upper  }}</li>
 	    {% endfor %}
 	</ul>
-
-	<h1>Ingredientes</h1>
-	<ul>
-	    {% for ingrediente in ingredientes %}
-	        <li>{{ ingrediente|upper  }}</li>
-	    {% endfor %}
-	</ul>
+	<a href="{{path('pizza_mostrar')}}">Mostrar</a>
+	<a href="{{path('pizza_editar')}}">Editar</a>
+	<a href="{{path('pizza_nuevo')}}">Nuevo</a>
 
 </div>
 {% endblock %}
