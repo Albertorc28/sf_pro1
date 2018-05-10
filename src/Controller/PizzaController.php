@@ -5,10 +5,14 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+     * @Route("/pizza")
+     */
+
 class PizzaController extends Controller
 {
     /**
-     * @Route("/pizza", name="pizza")
+     * @Route("", name="pizza")
      */
     public function index()
     {
@@ -21,7 +25,7 @@ class PizzaController extends Controller
     }
 
         /**
-     * @Route("/pizza/nuevo", name="pizza_nuevo")
+     * @Route("/nuevo", name="pizza_nuevo")
      */
     public function nuevaPizza()
     {
@@ -32,7 +36,7 @@ class PizzaController extends Controller
     }
 
             /**
-     * @Route("/pizza/editar", name="pizza_editar")
+     * @Route("editar", name="pizza_editar")
      */
     public function editarPizza()
     {
@@ -44,7 +48,7 @@ class PizzaController extends Controller
 
 
             /**
-     * @Route("/pizza/mostrar", name="pizza_mostrar")
+     * @Route("/mostrar", name="pizza_mostrar")
      */
     public function mostrarPizza()
     {
@@ -57,7 +61,7 @@ class PizzaController extends Controller
 
 
             /**
-     * @Route("/pizza/nombre/{parametro}", name="pizza_nombre")
+     * @Route("/nombre/{parametro}", name="pizza_nombre")
      */
     public function nombrePizza($parametro)
     {
@@ -68,15 +72,14 @@ class PizzaController extends Controller
         ]);
     }
 
-
-            /**
-     * @Route("/pizza/nombre/{precio}", name="pizza_nombre" requirements={"precio"="\d+"})
+	/**
+     * @Route("/calcular/{precio}", name="blog_list", requirements={"page"="\d+"})
      */
     public function calcularPizza($precio)
     {
     	$final=$precio*1.21;
         return $this->render('pizza/nombre.html.twig', [
-        	'preciofinal' => $final
+        	'preciofinal' => $final."€"
    
         ]);
     }
