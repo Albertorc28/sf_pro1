@@ -13,6 +13,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
      */
 class PersonaController extends Controller
 {
+    
+     /**
+     * @Route("/nuevo", name="persona_lista")
+     */
+
+    public function listado()
+    {
+        $repo= $this->getDoctrine()->getRepository(Persona::class);
+        $vectorpersona=$repo->findAll();
+
+        dump($vectorpersona);
+        return $this->render('persona/index.html.twig', [
+            'vectorpersona'=>$vectorpersona,
+        ]);
+    }
+
+
+
+
+
+
     /**
      * @Route("/nuevo", name="persona_nuevo")
      */

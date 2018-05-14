@@ -29,6 +29,13 @@ class Perro
      */
     private $raza;
 
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $edad;
+
+
     public function getId()
     {
         return $this->id;
@@ -57,4 +64,17 @@ class Perro
 
         return $this;
     }
+
+    public function getEdad(): ?int
+    {
+        return $this->edad;
+    }
+
+    public function setEdad(int $edad): self
+    {
+        $this->edad = $edad;
+
+        return $this;
+    }
 }
+

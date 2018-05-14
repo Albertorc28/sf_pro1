@@ -5,9 +5,9 @@
 <h1>Perros</h1>
 	<ul>
 		{% for perro in vectorperros %}
-			<li>{{perro.nombre}} - {{perro.raza}}</li>
+			<li>{{perro.nombre}} - {{perro.raza}} - {{perro.edad}}</li>
 		{%endfor%}
 	</ul>
-<a href="{{path(perro_nuevo)}}">Añadir Perro</a>
+<a href="{{path('perro_nuevo')}}">Añadir Perro</a>
 
 {% endblock %}
