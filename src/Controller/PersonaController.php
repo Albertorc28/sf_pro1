@@ -13,52 +13,43 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
      */
 class PersonaController extends Controller
 {
-    
-     /**
-     * @Route("/nuevo", name="persona_lista")
-     */
 
-    public function listado()
+
+    public function listado(Request $request)
     {
-        $repo= $this->getDoctrine()->getRepository(Persona::class);
-        $vectorpersona=$repo->findAll();
-
-        dump($vectorpersona);
-        return $this->render('persona/index.html.twig', [
-            'vectorpersona'=>$vectorpersona,
-        ]);
+        $repo=$this->getDoctrine()->getRepository(Persona::class);
+        $personas=$repo->findAll();
+        return $this->render('persona/index.html.twig',['listapersonas'=>$personas]);
     }
-
-
-
-
-
-
+    
     /**
      * @Route("/nuevo", name="persona_nuevo")
      */
     public function index(Request $request)
     {
+
+        $repo= $this->getDoctrine()->getRepository(Persona::class);
+        $vectorpersonas=$repo->findAll();
+
     	$persona=new persona();
     	$formu=$this->createForm(PersonaType::class,$persona);
     	$formu->handleRequest($request);
+
     	if ($formu->isSubmitted()) {
-    		$nombre=$request->request->get('nombre');
-    		$edad=$request->request->get('edad');
-    		$telefono=$request->request->get('telefono');
+            $entityManager = $this->getDoctrine()->getManager();
 
-    		dump($nombre);
-    		dump($edad);
-    		dump($telefono);
-    		dump($persona);
+            $entityManager->persist($persona);
 
-			return $this->render('persona/final.html.twig', [
-			        'formulario' => $formu->createView(),
-			]);    		
+            $entityManager->flush();
+
+
+			return $this->redirectToRoute('persona_lista', array('id' => $persona->getId()));    		
     	}
         
         return $this->render('persona/index.html.twig', [
-            'formulario'=>$formu->createView(),
+            'vectorpersonas'=>$vectorpersonas,
+            'formulario'=>$formu->createView(), 
+            
         ]);
     }
 }

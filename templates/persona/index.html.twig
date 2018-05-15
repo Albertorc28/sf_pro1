@@ -5,10 +5,13 @@
 <h1>Personas</h1>
 	<ul>
 		{% for persona in vectorpersonas %}
-			<li>{{persona.nombre}} - {{persona.edad}} - {{persona.telefono}}</li>
+			<li>{{persona.nombre}} - {{persona.edad}} - {{persona.telefono}} - {{persona.ciudad}}</li>
 		{%endfor%}
 	</ul>
-<a href="{{path('persona_nuevo')}}">Añadir Persona/a>
+
+{{ form_start(formulario) }}
+{{ form_widget(formulario) }}
+{{ form_end(formulario) }}
 
 
 {% endblock %}

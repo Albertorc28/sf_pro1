@@ -2,31 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Persona;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PersonaType extends AbstractType
+class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('nombre')
-            ->add('edad')
-            ->add('telefono')
-            ->add('ciudad')
             ->add('save', SubmitType::class, array('attr' => array('class' => 'btn btn-success')))
-            /*Nombre, Tipo y Array*/
-            ;
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Persona::class,
+            'data_class' => Category::class,
         ]);
     }
 }

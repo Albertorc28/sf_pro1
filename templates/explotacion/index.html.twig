@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Explotaciones</h1>
+	<ul>
+		{% for explotacion in vectorexplotaciones %}
+			<li>{{explotacion.latitud}} - {{explotacion.longitud}} - {{explotacion.propietario}} - {{explotacion.numanimales}}</li>
+		{%endfor%}
+	</ul>
+
+
+
+{% endblock %}
