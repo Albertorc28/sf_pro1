@@ -5,7 +5,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;/**
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+/**
 * @Route("/category")
 */
 class CategoryController extends Controller

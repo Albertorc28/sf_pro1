@@ -5,11 +5,13 @@
 <h1>Productos</h1>
 	<ul>
 		{% for producto in listaproducto %}
-			<li>{{producto.nombre}} - {{producto.nombre}} - {{producto.categoria}}</li>
+			<li>{{producto.nombre}} - {{producto.precio}} - {{producto.categoria.nombre}}</li>
 		{%endfor%}
 	</ul>
 
-{{dump(listaproducto)}}
-{{dump(producto.categoria)}}
+
 <p><a href="{{path('producto_nuevo')}}">Añadir producto</a></p>
+
+<button type="button" class="btn btn-primary">cambiar color</button>
+
 {% endblock %}

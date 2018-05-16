@@ -6,7 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Producto;
 use App\Form\ProductoType;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;/**
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+/**
 * @Route("/producto")
 */
 class ProductoController extends Controller
