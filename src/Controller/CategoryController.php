@@ -43,7 +43,6 @@ class CategoryController extends Controller
        }        
 
        return $this->render('category/nuevo.html.twig', [
-       		'vectorcategories' => $vectorcategories,
            	'formulario' => $formu->createView()        
 
        ]);
