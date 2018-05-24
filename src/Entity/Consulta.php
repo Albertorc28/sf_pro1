@@ -17,7 +17,7 @@ class Consulta
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=10)
      */
     private $titulo;
 
@@ -27,7 +27,7 @@ class Consulta
     private $fechahora;
 
     /**
-     * @ORM\Column(type="string", length=1000)
+     * @ORM\Column(type="text")
      */
     private $descripcion;
 

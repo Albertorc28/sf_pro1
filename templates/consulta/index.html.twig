@@ -1,18 +1,33 @@
 {% extends 'base.html.twig' %}
 
 
+
+
+
 {% block body %}
-<h1>Consultas</h1>
+
+		<h1>Listado de consultas</h1>
+
+
+
 	<ul>
-		{% for consulta in listaconsulta %}
-			<li>{{consulta.titulo}} - {{consulta.fechahora|date('Y-m-d')}} - {{consulta.descripcion}} - {{consulta.importe}}</li>
-		{%endfor%}
+
+    {% for consulta in vectorconsulta %}
+
+        <li>{{ consulta.titulo }} - {{ consulta.fechahora|date('Y-m-d') }} - {{ consulta.descripcion }} - {{ consulta.importe|number_format() }}</li>
+
+    {% endfor %}
+
 	</ul>
 
 
-<p><a href="{{path('consulta_nuevo')}}">Añadir consulta</a></p>
 
-<button type="button" class="btn btn-primary">cambiar color</button>
+	<a href="{{ path('consulta_nuevo')}}">Añadir consulta</a>
+
+	<a href="{{ path('cliente_lista')}}">Lista clientes</a>
+
+	<button type="button" class="btn btn-primary">cambiar color</button>
+
+
 
 {% endblock %}
-

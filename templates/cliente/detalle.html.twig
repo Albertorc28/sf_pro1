@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}    
+	<h1>Listado de clientes</h1>    
+	{{ cliente.nombre }} - {{ cliente.direccion }} - {{ cliente.cp }} - {{ cliente.ciudad }}    
+	<ul>
+	   {% for mascota in cliente.mascotas %}
+	       <li>{{ mascota.nombre }} - {{ mascota.animal }} - {{ mascota.fechanac | date ( "m/d/Y" )  }} - {{ mascota.cliente.nombre}}</li>
+	   {% endfor %}
+	    </ul>
+    
+{% endblock %}

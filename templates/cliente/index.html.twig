@@ -1,17 +1,47 @@
 {% extends 'base.html.twig' %}
-
-
 {% block body %}
-<h1>Clientes</h1>
-	<ul>
-		{% for cliente in listacliente %}
-			<li>{{cliente.nombre}} - {{cliente.direccion}} - {{cliente.cp}} - {{cliente.ciudad}}</li>
-		{%endfor%}
-	</ul>
+    <h1>Listado de clientes</h1>    
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+    <ul>
+   {% for cliente in listacliente %}        
+   	<li> 
+   		<a href="/cliente/detalle/{{ cliente.id }}">{{ cliente.nombre }} - {{ cliente.direccion }} - {{ cliente.cp }} - {{ cliente.ciudad }}</a>
+  <ul>
+   {% for mascota in cliente.mascotas %}
+       <li>
+       	{{ mascota.nombre }} - {{ mascota.animal }} - {{ mascota.fechanac | date ( "m/d/Y" )  }} - {{ mascota.cliente.nombre}}
+       </li>
+   {% endfor %}
+  </ul>
+       </li>
+   {% endfor %}
+    </ul>    
 
+    <a href="{{ path('cliente_nuevo')}}"><button type="button" class="btn btn-warning">Añadir cliente</button></a>
+    <a href="{{ path('mascota_nuevo')}}"><button type="button" class="btn btn-warning">Añadir mascota</button></a>
+    <a href="{{ path('consulta_nuevo')}}"><button type="button" class="btn btn-warning">Añadir consulta</button></a>
 
-<p><a href="{{path('cliente_nuevo')}}">Añadir cliente</a></p>
-
-<button type="button" class="btn btn-primary">cambiar color</button>
-
+    <button type="button" class="btn btn-primary">cambiar color</button>
+    
 {% endblock %}

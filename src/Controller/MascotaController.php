@@ -47,6 +47,7 @@ class MascotaController extends Controller
             //El flush es como un commit ¿ya esta todo? pues ahora si coge todos los dias//
             $em->flush();
             //Esto es para que cuando se creen personas en el formulario los mande a la lista
+      return $this->redirectToRoute('cliente_detalle', array('id' => $mascota->getCliente()->getId()));
         
       }
         return $this->render('mascota/nuevo.html.twig', [
