@@ -6,6 +6,6 @@
 	   {% for mascota in cliente.mascotas %}
 	       <li>{{ mascota.nombre }} - {{ mascota.animal }} - {{ mascota.fechanac | date ( "m/d/Y" )  }} - {{ mascota.cliente.nombre}}</li>
 	   {% endfor %}
-	    </ul>
+	</ul>
     
 {% endblock %}
